@@ -89,17 +89,23 @@ async function main() {
             tokenDecimals = tokenDetails.decimals;
         }
 
-        const deflationaryResponse = await prompts({
-            type: 'select',
-            name: 'deflationary',
-            message: 'Is the token deflationary?',
-            choices: [
-                { title: 'Yes', value: true },
-                { title: 'No', value: false },
-            ],
-        });
+        let isDeflationary;
+        if (transactionType === 'Batch ERC-20') {
+            const deflationaryResponse = await prompts({
+                type: 'select',
+                name: 'deflationary',
+                message: 'Is the token deflationary?',
+                choices: [
+                    { title: 'Yes', value: true },
+                    { title: 'No', value: false },
+                ],
+            });
 
-        const isDeflationary = deflationaryResponse.deflationary;
+            isDeflationary = deflationaryResponse.deflationary;
+        } else {
+            // Default to false for Ether transactions
+            isDeflationary = false;
+        }
 
         const amountTypeResponse = await prompts({
             type: 'select',
