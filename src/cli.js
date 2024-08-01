@@ -9,7 +9,12 @@ require('dotenv').config();
 // Configuration
 const providerUrl = process.env.RPC_URL;
 const privateKey = process.env.TESTNET_PRIVATE_KEY;
-const contractAddress = "0xc8bF78bb0e4102063Fc7A18026f6Aa435c457dE1";
+
+// Load contract address from deployed addresses file
+const addressesFilePath = path.resolve(__dirname, '../deployed', 'addresses.json');
+const addresses = JSON.parse(fs.readFileSync(addressesFilePath, 'utf-8'));
+const contractAddress = addresses.proxyAddress;
+
 
 // Validate configuration
 if (!providerUrl || !privateKey || !contractAddress) {

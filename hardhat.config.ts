@@ -25,6 +25,10 @@ const config: HardhatUserConfig = {
       url: process.env.RPC_URL,
       accounts: [process.env.TESTNET_PRIVATE_KEY || ''],
     },
+    sepolia: {
+      url: process.env.RPC_URL,
+      accounts: [process.env.TESTNET_PRIVATE_KEY || ''],
+    },
     // main networks
     ethereum: {
       url: "https://eth-mainnet.g.alchemy.com/v2/ThP75c4L-jDh9F9d8_icKVhT9r9xdDRu",
@@ -51,7 +55,7 @@ const config: HardhatUserConfig = {
   etherscan: {
     apiKey: {
       bscTestnet: process.env.ETHERSCAN_API_KEY || '',
-
+      sepolia: process.env.ETHERSCAN_API_KEY || '',
     },
     customChains: [
       {
