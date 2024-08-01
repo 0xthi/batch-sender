@@ -12,6 +12,7 @@
 7. Now before running SDK, replace `fixed.csv` or `variable.csv` with your own address and amount.
    FIXED - Amounts are same for all recipients. Only address is required in `fixed.csv` file
    VARIABLE - Amounts are not same for all recipients. It has addresses and amounts seperated by comma in `variable.csv`
+8. After setting up everything run `node src/cli.js` to start the SDK.
 
 ## Options available
 
